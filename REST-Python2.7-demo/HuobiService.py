@@ -7,6 +7,7 @@
 
 from HuobiUtil import *
 import sys
+import json
 
 
 '''
@@ -14,8 +15,6 @@ Market data API
 '''
 
 # 获取KLine
-
-
 def get_kline(symbol, period, size):
     """
     :param symbol
@@ -85,6 +84,7 @@ Trade/Account API
 
 
 def get_accounts():
+    print 'get_accounts'
     """
     :return: 
     """
@@ -114,8 +114,6 @@ def get_balance(acct_id=None):
 
 
 # 创建并执行订单
-
-
 def send_order(amount, source, symbol, _type, price=0):
     """
     :param amount: 
@@ -409,4 +407,17 @@ def margin_balance(symbol=""):
 
 
 if __name__ == '__main__':
-    print get_symbols()
+
+    parameters = []
+    for i in range(1, len(sys.argv)):
+        #print 'arguments', i, sys.argv[i]
+        parameters.append(sys.argv[i])
+    #print parameters
+
+    if (parameters[0] == 'get_balance'):
+        if (len(sys.argv) == 2):
+            result = get_balance()
+            print json.dumps(result)
+        else:
+            result = get_balance(parameters[1])
+            json.dumps(result)

@@ -54,6 +54,7 @@ MARKET_URL = TRADE_URL = "https://api.huobi.pro"
 
 #各种请求,获取数据方式
 def http_get_request(url, params, add_to_headers=None):
+    print 'http_get_request'
     headers = {
         "Content-type": "application/x-www-form-urlencoded",
         'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0'
@@ -93,6 +94,7 @@ def http_post_request(url, params, add_to_headers=None):
 
 
 def api_key_get(params, request_path):
+    print 'api_key_get'
     method = 'GET'
     timestamp = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
     params.update({'AccessKeyId': ACCESS_KEY,
