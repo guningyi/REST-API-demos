@@ -5,6 +5,7 @@
 # @QQ      : 375235513
 # @github  : https://github.com/KlausQIU
 
+from Secret import *
 import base64
 import hmac
 import hashlib
@@ -40,8 +41,8 @@ DEFAULT_POST_HEADERS = {
 }
 # 此处填写APIKEY
 
-ACCESS_KEY = ""
-SECRET_KEY = ""
+ACCESS_KEY = AccessKey
+SECRET_KEY = SecretKey
 
 
 # 首次运行可通过get_accounts()获取acct_id,然后直接赋值,减少重复获取。
